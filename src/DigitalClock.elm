@@ -50,7 +50,7 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     UpdateTimeZone newZone ->
-      update GetTime( { model | zone = newZone } )
+      ( { model | zone = newZone }, Cmd.none )
 
     GetTime ->
       ( model, Task.perform UpdateTime Time.now )
@@ -98,7 +98,7 @@ view model =
      [ h1 [] [ text (hour ++ ":" ++ minute ++ ":" ++ second) ]
      , h1 [] [ text (day ++ " " ++ monthName ++ " " ++ year) ]
      , h1 [] [ text (year ++ "-" ++ monthNumber ++ "-" ++ day) ]
-     , p  [] [ text ("Lengt of the delayPeriod: " ++ (String.fromFloat (timeFraction model)))]
+     , p  [] [ text ("Length of the delayPeriod: " ++ (String.fromFloat (timeFraction model)))]
     ]
 
 toDutchMonth : Month -> String
