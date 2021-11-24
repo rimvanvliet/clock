@@ -1,0 +1,90 @@
+@media screen and (orientation:landscape) {
+    .container{
+        height: 98vh;
+        width: 98vh;
+    }
+}
+@media screen and (orientation:portrait) {
+    .container{
+        height: 98vw;
+        width: 98vw;
+    }
+}
+
+body {
+    background-color: #222;
+}
+
+div {
+    border: #000;
+    border-style: solid;
+    border-width: 0;
+}
+
+.box {
+    display: grid;
+}
+
+.brdr {
+    border-width: 7px;
+}
+
+.brdrt {
+    border-top-width: 14px;
+}
+
+.brdrr {
+    border-right-width: 14px;
+}
+
+.left-half {
+    grid-column: 1;
+}
+
+.right-half {
+    grid-column: 2;
+}
+
+.upper-half {
+    grid-row: 1;
+}
+
+.lower-half {
+    grid-row: 2;
+}
+#tijdtekst {
+    color: white;
+    text-align: left;
+    font-size: 10vh;
+    font-family: Verdana, sans-serif;
+}
+
+.info {
+    float: right;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    font-family: Verdana, sans-serif;
+    visibility: hidden;
+    width: 25vw;
+    background-color: white;
+    color: #333;
+    text-align: left;
+    border-radius: 6px;
+    padding: 15px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    right: 100%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

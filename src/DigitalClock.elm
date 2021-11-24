@@ -15,7 +15,7 @@ main =
     { init = init
     , view = view
     , update = update
-    , subscriptions = subscriptions
+    , subscriptions = always Sub.none
     }
 
 
@@ -70,14 +70,6 @@ timeFraction : Model -> Float
 timeFraction model =
     1000 - toFloat (Time.toMillis model.zone model.time)
 
-
-
-
--- SUBSCRIPTIONS
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
- Sub.none
 
 
 -- VIEW

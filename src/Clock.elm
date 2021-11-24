@@ -1,14 +1,4 @@
-module Clock exposing (Model, Msg(..), init, main, subscriptions, update, view, viewHand)
-
--- Show an analog clock for your time zone.
---
--- Dependencies:
---   elm install elm/svg
---   elm install elm/time
---
--- For a simpler version, check out:
---   https://elm-lang.org/examples/time
---
+module Clock exposing (Model, Msg(..), init, main, update, view, viewHand)
 
 import Browser
 import Html exposing (Html)
@@ -29,7 +19,7 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = subscriptions
+    , subscriptions = always Sub.none
         }
 
 
@@ -85,17 +75,8 @@ timeFraction : Model -> Float
 timeFraction model =
     1000 - toFloat (Time.toMillis model.zone model.time)
 
--- SUBSCRIPTIONS
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
- Sub.none
-
-
-
 
 -- VIEW
-
 
 view : Model -> Html Msg
 view model =
@@ -119,7 +100,6 @@ view model =
 
 strokes : List (Svg msg)
 strokes = List.map ( \num -> viewHand 1 110 ( num/12 ) "white" ) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-
 
 viewHand : Int -> Float -> Float -> String -> Svg msg
 viewHand width length turns color =
