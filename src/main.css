@@ -52,7 +52,7 @@ div {
 .lower-half {
     grid-row: 2;
 }
-#tijdtekst {
+#timeText {
     color: white;
     text-align: left;
     font-size: 10vh;
